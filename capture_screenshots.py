@@ -11,17 +11,19 @@ CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 if not os.path.exists(CHROME_PATH):
     CHROME_PATH = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
-APP_PATH = r"C:\Users\SCI\Desktop\data analyst\ipl-analytics\app.py"
-SCREENSHOTS_DIR = r"C:\Users\SCI\Desktop\data analyst\ipl-analytics\screenshots"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+APP_PATH = os.path.join(BASE_DIR, "app.py")
+SCREENSHOTS_DIR = os.path.join(BASE_DIR, "screenshots")
+STREAMLIT_EXE = os.path.join(BASE_DIR, "venv", "Scripts", "streamlit.exe")
 os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
 
 port = 8512
 chrome_port = 9232
-user_data_dir = r"C:\temp\chrome_screenshot_profile12"
+user_data_dir = os.path.join(os.environ.get("TEMP", "temp"), "chrome_screenshot_profile")
 
 print(f"Launching Streamlit on port {port}...")
 st_proc = subprocess.Popen([
-    r"C:\Users\SCI\Desktop\data analyst\ipl-analytics\venv\Scripts\streamlit.exe",
+    STREAMLIT_EXE,
     "run", APP_PATH,
     "--server.headless=true",
     f"--server.port={port}",

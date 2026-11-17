@@ -1,11 +1,13 @@
+import os
 import pandas as pd
 from sqlalchemy import create_engine
 
 engine = create_engine("mysql+pymysql://root:YOUR_PASSWORD@localhost:3306/ipl")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 files = {
-    "matches": r"C:\Users\SCI\Desktop\data analyst\ipl-analytics\matches.csv",
-    "deliveries": r"C:\Users\SCI\Desktop\data analyst\ipl-analytics\deliveries.csv",
+    "matches": os.path.join(BASE_DIR, "matches.csv"),
+    "deliveries": os.path.join(BASE_DIR, "deliveries.csv"),
 }
 
 for table, path in files.items():

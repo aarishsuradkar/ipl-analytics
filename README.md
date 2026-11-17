@@ -72,10 +72,11 @@ Data files reside in `output/` (and fallback `question sql/`):
 
 ### 4.2 Activate Virtual Environment & Run
 ```powershell
-# Navigate to the project directory
-cd "C:\Users\SCI\Desktop\data analyst\ipl-analytics"
+# Clone or navigate to the repository directory
+git clone https://github.com/aarishsuradkar/ipl-analytics.git
+cd ipl-analytics
 
-# Activate the existing virtual environment
+# Activate the virtual environment
 .\venv\Scripts\Activate.ps1
 
 # (Optional) Verify requirements
@@ -106,6 +107,7 @@ This script audits:
 ```text
 ipl-analytics/
 ├── app.py                      # Main Streamlit + Plotly application
+├── PROJECT_REPORT.md           # Comprehensive end-to-end report with screenshots
 ├── requirements.txt            # Dependency specification
 ├── verify_dashboard.py         # Automated verification script
 ├── README_dashboard.md         # Project documentation and findings
