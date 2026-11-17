@@ -1,0 +1,25 @@
+SELECT VERSION();
+CREATE DATABASE ipl;
+USE ipl;
+USE ipl;
+SELECT COUNT(*) FROM matches;
+SELECT COUNT(*) FROM deliveries;
+DESCRIBE matches;
+DESCRIBE deliveries;
+SELECT DISTINCT season FROM matches ORDER BY season;
+ALTER TABLE deliveries
+  MODIFY batsman_runs INT, MODIFY total_runs INT, MODIFY is_wicket INT;
+  ALTER TABLE deliveries RENAME COLUMN `over` TO over_no;
+SELECT MIN(over_no), MAX(over_no) FROM deliveries;
+CREATE INDEX idx_match ON deliveries(match_id);
+SET SQL_SAFE_UPDATES = 0;
+ALTER TABLE matches ADD COLUMN match_date DATE;
+UPDATE matches SET match_date = STR_TO_DATE(`date`, '%Y-%m-%d');
+SELECT DISTINCT team1 FROM matches ORDER BY 1;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE matches SET team1='Delhi Capitals' WHERE team1='Delhi Daredevils';
+UPDATE matches SET team2='Delhi Capitals' WHERE team2='Delhi Daredevils';
+UPDATE matches SET winner='Delhi Capitals' WHERE winner='Delhi Daredevils';
+UPDATE matches SET toss_winner='Delhi Capitals' WHERE toss_winner='Delhi Daredevils';
+UPDATE deliveries SET batting_team='Delhi Capitals' WHERE batting_team='Delhi Daredevils';
+UPDATE deliveries SET bowling_team='Delhi Capitals' WHERE bowling_team='Delhi Daredevils';

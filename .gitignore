@@ -1,0 +1,15 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary & cache files
+.streamlit/
+*.log
+.DS_Store
+Thumbs.db
